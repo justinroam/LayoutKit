@@ -128,16 +128,4 @@ typedef unsigned int swift_uint4  __attribute__((__ext_vector_type__(4)));
 @interface UIView (SWIFT_EXTENSION(LayoutKit))
 @end
 
-
-@interface UIView (SWIFT_EXTENSION(LayoutKit))
-@end
-
-
-@interface UIView (SWIFT_EXTENSION(LayoutKit))
-@end
-
-
-@interface UIViewController (SWIFT_EXTENSION(LayoutKit))
-@end
-
 #pragma clang diagnostic pop
