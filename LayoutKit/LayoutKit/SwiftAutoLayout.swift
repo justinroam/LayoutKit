@@ -13,8 +13,6 @@ import UIKit
 public protocol LayoutRegion: AnyObject {}
 
 extension UIView: LayoutRegion {}
-
-@available(iOS 9.0, OSX 10.11, *)
 extension UILayoutGuide: LayoutRegion {}
 
 public struct XAxis {}
@@ -89,6 +87,19 @@ private func layoutItem<C>(_ item: AnyObject, _ attribute: NSLayoutAttribute) ->
 }
 
 public extension LayoutRegion {
+    public var left: LayoutItem<XAxis> { return layoutItem(self, .left) }
+    public var right: LayoutItem<XAxis> { return layoutItem(self, .right) }
+    public var top: LayoutItem<YAxis> { return layoutItem(self, .top) }
+    public var bottom: LayoutItem<YAxis> { return layoutItem(self, .bottom) }
+    public var leading: LayoutItem<XAxis> { return layoutItem(self, .leading) }
+    public var trailing: LayoutItem<XAxis> { return layoutItem(self, .trailing) }
+    public var width: LayoutItem<Dimension> { return layoutItem(self, .width) }
+    public var height: LayoutItem<Dimension> { return layoutItem(self, .height) }
+    public var centerX: LayoutItem<XAxis> { return layoutItem(self, .centerX) }
+    public var centerY: LayoutItem<YAxis> { return layoutItem(self, .centerY) }
+}
+
+public extension UILayoutSupport {
     public var left: LayoutItem<XAxis> { return layoutItem(self, .left) }
     public var right: LayoutItem<XAxis> { return layoutItem(self, .right) }
     public var top: LayoutItem<YAxis> { return layoutItem(self, .top) }

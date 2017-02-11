@@ -20,7 +20,7 @@ public extension PlaygroundView {
         let color = playgroundViewColors[playgroundViews.count % playgroundViewColors.count].withAlphaComponent(0.5)
         
         self.backgroundColor = color
-        
+    
         let numberLabel = UILabel()
         addSubview(numberLabel)
         numberLabel.textAlignment = .center
