@@ -9,7 +9,6 @@ container.backgroundColor = .white
 
 PlaygroundPage.current.liveView = container
 
-
 let view1 = PlaygroundView()
 let view2 = PlaygroundView()
 let view3 = PlaygroundView()

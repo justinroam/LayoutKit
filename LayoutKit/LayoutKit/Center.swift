@@ -20,15 +20,15 @@ public extension Layout {
     /// - returns: A labeled tuple containing the applied `centerX` and `centerY` constraints.
 
     @discardableResult public func center(in layoutRegion: LayoutRegion, _ offset: UIOffset = UIOffset.zero) ->
-        (centerXConstraint: NSLayoutConstraint,
-        centerYConstraint: NSLayoutConstraint) {
+    (centerXConstraint: NSLayoutConstraint,
+     centerYConstraint: NSLayoutConstraint) {
 
-            let centerXConstraint = (base.centerX == layoutRegion.centerX + offset.horizontal)
-            let centerYConstraint = (base.centerY == layoutRegion.centerY + offset.vertical)
+        let centerXConstraint = (base.centerX == layoutRegion.centerX + offset.horizontal)
+        let centerYConstraint = (base.centerY == layoutRegion.centerY + offset.vertical)
 
-            NSLayoutConstraint.activate([centerXConstraint, centerYConstraint])
+        NSLayoutConstraint.activate([centerXConstraint, centerYConstraint])
 
-            return (centerXConstraint, centerYConstraint)
+        return (centerXConstraint, centerYConstraint)
     }
 
 }

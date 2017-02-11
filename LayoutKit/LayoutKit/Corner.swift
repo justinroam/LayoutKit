@@ -23,37 +23,37 @@ public extension Layout {
     ///
     /// - returns: A labeled tuple containing the applied `horizontalEdge` and `verticalEdge` constraints.
 
-    @discardableResult public func corner(_ horizontalEdge: SidedLayoutItem<YAxis>, _ verticalEdge: SidedLayoutItem<XAxis>) ->
-        (horizontalEdgeConstraint: NSLayoutConstraint,
-        verticalEdgeConstraint: NSLayoutConstraint) {
+    @discardableResult public func corner<I>(_ horizontalEdge: SidedLayoutItem<I, YAxis>, _ verticalEdge: SidedLayoutItem<LayoutRegion, XAxis>) ->
+    (horizontalEdgeConstraint: NSLayoutConstraint,
+     verticalEdgeConstraint: NSLayoutConstraint) {
 
-            let horizontalEdgeConstraint: NSLayoutConstraint
+        let horizontalEdgeConstraint: NSLayoutConstraint
 
-            switch (horizontalEdge.layoutItem.attribute, horizontalEdge.side) {
-            case (.top, .inside), (.bottom, .outside):
-                horizontalEdgeConstraint = (base.top == horizontalEdge.layoutItem)
-            case (.bottom, .inside), (.top, .outside):
-                horizontalEdgeConstraint = (base.bottom == horizontalEdge.layoutItem)
-            default:
-                fatalError("Invalid layout item.")
-            }
-
-
-            let verticalEdgeConstraint: NSLayoutConstraint
-
-            switch (verticalEdge.layoutItem.attribute, verticalEdge.side) {
-            case (.left, .inside), (.right, .outside):
-                verticalEdgeConstraint = (base.left == verticalEdge.layoutItem)
-            case (.right, .inside), (.left, .outside):
-                verticalEdgeConstraint = (base.right == verticalEdge.layoutItem)
-            default:
-                fatalError("Invalid layout item.")
-            }
+        switch (horizontalEdge.layoutItem.attribute, horizontalEdge.side) {
+        case (.top, .inside), (.bottom, .outside):
+            horizontalEdgeConstraint = (base.top == horizontalEdge.layoutItem)
+        case (.bottom, .inside), (.top, .outside):
+            horizontalEdgeConstraint = (base.bottom == horizontalEdge.layoutItem)
+        default:
+            fatalError("Invalid layout item.")
+        }
 
 
-            NSLayoutConstraint.activate([horizontalEdgeConstraint, verticalEdgeConstraint])
+        let verticalEdgeConstraint: NSLayoutConstraint
 
-            return (horizontalEdgeConstraint, verticalEdgeConstraint)
+        switch (verticalEdge.layoutItem.attribute, verticalEdge.side) {
+        case (.left, .inside), (.right, .outside):
+            verticalEdgeConstraint = (base.left == verticalEdge.layoutItem)
+        case (.right, .inside), (.left, .outside):
+            verticalEdgeConstraint = (base.right == verticalEdge.layoutItem)
+        default:
+            fatalError("Invalid layout item.")
+        }
+
+
+        NSLayoutConstraint.activate([horizontalEdgeConstraint, verticalEdgeConstraint])
+
+        return (horizontalEdgeConstraint, verticalEdgeConstraint)
     }
 
 }

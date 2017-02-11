@@ -19,15 +19,15 @@ public extension Layout {
     /// - returns: A labeled tuple containing the applied `width` and `height` constraints.
 
     @discardableResult public func size(width: CGFloat, height: CGFloat) ->
-        (widthConstraint: NSLayoutConstraint,
-        heightConstraint: NSLayoutConstraint) {
+    (widthConstraint: NSLayoutConstraint,
+     heightConstraint: NSLayoutConstraint) {
 
-            let widthConstraint = (base.width == width)
-            let heightConstraint = (base.height == height)
+        let widthConstraint = (base.width == width)
+        let heightConstraint = (base.height == height)
 
-            NSLayoutConstraint.activate([widthConstraint, heightConstraint])
+        NSLayoutConstraint.activate([widthConstraint, heightConstraint])
 
-            return (widthConstraint, heightConstraint)
+        return (widthConstraint, heightConstraint)
     }
 
 
@@ -40,10 +40,10 @@ public extension Layout {
     /// - returns: A labeled tuple containing the applied `width` and `height` constraints.
 
     @discardableResult public func size(_ size: CGFloat) ->
-        (widthConstraint: NSLayoutConstraint,
-        heightConstraint: NSLayoutConstraint) {
+    (widthConstraint: NSLayoutConstraint,
+     heightConstraint: NSLayoutConstraint) {
 
-            return self.size(width: size, height: size)
+        return self.size(width: size, height: size)
     }
 
 

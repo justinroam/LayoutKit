@@ -17,7 +17,7 @@ public extension Layout {
     ///
     /// - returns: The applied constraints.
 
-    @discardableResult  public func apply(_ constraints: NSLayoutConstraint...) -> [NSLayoutConstraint] {
+    @discardableResult public func apply(_ constraints: NSLayoutConstraint...) -> [NSLayoutConstraint] {
         NSLayoutConstraint.activate(constraints)
         return constraints
     }

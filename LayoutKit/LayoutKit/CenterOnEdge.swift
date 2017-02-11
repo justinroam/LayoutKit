@@ -20,30 +20,26 @@ public extension Layout {
     ///
     /// - returns: A labeled tuple containing the applied `edge` (`top` or `bottom`) and `centerX` constraint.
 
-    @discardableResult public func center(on edge: SidedLayoutItem<YAxis>) ->
-        (edgeConstraint: NSLayoutConstraint,
-        centerConstraint: NSLayoutConstraint) {
+    @discardableResult public func center(on edge: SidedLayoutItem<LayoutRegion, YAxis>) ->
+    (edgeConstraint: NSLayoutConstraint,
+     centerConstraint: NSLayoutConstraint) {
 
-            guard let layoutRegion = edge.layoutItem.item as? LayoutRegion else {
-                fatalError("Invalid layout item.")
-            }
+        let edgeConstraint: NSLayoutConstraint
 
-            let edgeConstraint: NSLayoutConstraint
+        switch (edge.layoutItem.attribute, edge.side) {
+        case (.top, .inside), (.bottom, .outside):
+            edgeConstraint = (base.top == edge.layoutItem)
+        case (.bottom, .inside), (.top, .outside):
+            edgeConstraint = (base.bottom == edge.layoutItem)
+        default:
+            fatalError("Invalid layout item.")
+        }
 
-            switch (edge.layoutItem.attribute, edge.side) {
-            case (.top, .inside), (.bottom, .outside):
-                edgeConstraint = (base.top == edge.layoutItem)
-            case (.bottom, .inside), (.top, .outside):
-                edgeConstraint = (base.bottom == edge.layoutItem)
-            default:
-                fatalError("Invalid layout item.")
-            }
+        let centerConstraint = (base.centerX == edge.layoutItem.item.centerX)
 
-            let centerConstraint = (base.centerX == layoutRegion.centerX)
+        NSLayoutConstraint.activate([edgeConstraint, centerConstraint])
 
-            NSLayoutConstraint.activate([edgeConstraint, centerConstraint])
-
-            return (edgeConstraint, centerConstraint)
+        return (edgeConstraint, centerConstraint)
     }
 
 
@@ -57,30 +53,26 @@ public extension Layout {
     ///
     /// - returns: A labeled tuple containing the applied `edge` (`left` or `right`) and `centerY` constraint.
 
-    @discardableResult public func center(on edge: SidedLayoutItem<XAxis>) ->
-        (edgeConstraint: NSLayoutConstraint,
-        centerConstraint: NSLayoutConstraint) {
+    @discardableResult public func center(on edge: SidedLayoutItem<LayoutRegion, XAxis>) ->
+    (edgeConstraint: NSLayoutConstraint,
+     centerConstraint: NSLayoutConstraint) {
 
-            guard let layoutRegion = edge.layoutItem.item as? LayoutRegion else {
-                fatalError("Invalid layout item.")
-            }
+        let edgeConstraint: NSLayoutConstraint
 
-            let edgeConstraint: NSLayoutConstraint
+        switch (edge.layoutItem.attribute, edge.side) {
+        case (.left, .inside), (.right, .outside):
+            edgeConstraint = (base.left == edge.layoutItem)
+        case (.right, .inside), (.left, .outside):
+            edgeConstraint = (base.right == edge.layoutItem)
+        default:
+            fatalError("Invalid layout item.")
+        }
 
-            switch (edge.layoutItem.attribute, edge.side) {
-            case (.left, .inside), (.right, .outside):
-                edgeConstraint = (base.left == edge.layoutItem)
-            case (.right, .inside), (.left, .outside):
-                edgeConstraint = (base.right == edge.layoutItem)
-            default:
-                fatalError("Invalid layout item.")
-            }
+        let centerConstraint = (base.centerY == edge.layoutItem.item.centerY)
 
-            let centerConstraint = (base.centerY == layoutRegion.centerY)
+        NSLayoutConstraint.activate([edgeConstraint, centerConstraint])
 
-            NSLayoutConstraint.activate([edgeConstraint, centerConstraint])
-
-            return (edgeConstraint, centerConstraint)
+        return (edgeConstraint, centerConstraint)
     }
 
 }

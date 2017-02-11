@@ -16,7 +16,7 @@ public extension CGRect {
     ///   - size: Size of the `CGRect`.
     ///
 
-    public init(size: CGSize){
+    public init(size: CGSize) {
         self.init(origin: CGPoint.zero, size: size)
     }
 

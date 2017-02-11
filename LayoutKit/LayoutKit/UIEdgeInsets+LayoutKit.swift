@@ -18,7 +18,7 @@ public extension UIEdgeInsets {
     /// Create `UIEdgeInsets` by specifying only insets unique edges.
     /// Unspecified edges will be set to `others` (default `0`).
 
-    public init(top: CGFloat? = nil, left: CGFloat? = nil, bottom: CGFloat? = nil, right: CGFloat? = nil, others : CGFloat = 0) {
+    public init(top: CGFloat? = nil, left: CGFloat? = nil, bottom: CGFloat? = nil, right: CGFloat? = nil, others: CGFloat = 0) {
         self.init(top ?? others, left ?? others, bottom ?? others, right ?? others)
     }
 
