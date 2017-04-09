@@ -87,15 +87,15 @@ public func - <I, A>(lhs: LayoutItem<I, A>, rhs: CGFloat) -> LayoutItem<I, A> {
     return lhs.withConstant(lhs.constant - rhs)
 }
 
-public func == <I1, I2, A>(lhs: LayoutItem<I1, A>, rhs: LayoutItem<I2, A>) -> NSLayoutConstraint {
+public func == <I1, I2, A1, A2>(lhs: LayoutItem<I1, A1>, rhs: LayoutItem<I2, A2>) -> NSLayoutConstraint {
     return lhs.constrain(rhs, .equal)
 }
 
-public func >= <I1, I2, A>(lhs: LayoutItem<I1, A>, rhs: LayoutItem<I2, A>) -> NSLayoutConstraint {
+public func >= <I1, I2, A1, A2>(lhs: LayoutItem<I1, A1>, rhs: LayoutItem<I2, A2>) -> NSLayoutConstraint {
     return lhs.constrain(rhs, .greaterThanOrEqual)
 }
 
-public func <= <I1, I2, A>(lhs: LayoutItem<I1, A>, rhs: LayoutItem<I2, A>) -> NSLayoutConstraint {
+public func <= <I1, I2, A1, A2>(lhs: LayoutItem<I1, A1>, rhs: LayoutItem<I2, A2>) -> NSLayoutConstraint {
     return lhs.constrain(rhs, .lessThanOrEqual)
 }
 
