@@ -30,7 +30,7 @@ view4.layout.fill(view1.right.inside)
 To integrate LayoutKit into your Xcode project using [Carthage](https://github.com/Carthage/Carthage), specify it in your `Cartfile`:
 
 ```ogdl
-github "avario/LayoutKit" ~> 1.3
+github "avario/LayoutKit"
 ```
 
 Run `carthage update` to build the framework and drag the built `LayoutKit.framework` into your Xcode project.
