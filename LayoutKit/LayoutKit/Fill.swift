@@ -20,7 +20,7 @@ public extension Layout {
 
     @discardableResult public func fill(_ layoutRegion: LayoutRegion, _ insets: UIEdgeInsets = UIEdgeInsets.zero) ->
     (topConstraint: NSLayoutConstraint,
-     bottomContraint: NSLayoutConstraint,
+     bottomConstraint: NSLayoutConstraint,
      leftConstraint: NSLayoutConstraint,
      rightConstraint: NSLayoutConstraint) {
 
