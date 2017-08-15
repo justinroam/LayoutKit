@@ -2,7 +2,7 @@ Pod::Spec.new do |s|
 
   s.name         = "LayoutKit"
   s.version      = "0.5"
-  s.summary      = ""
+  s.summary      = "A lightweight library for simple view layout in Swift."
   s.homepage     = "https://github.com/justinroam/LayoutKit"
   s.license      = "MIT License"
   s.source       = { :git => "https://github.com/justinroam/LayoutKit.git" }
